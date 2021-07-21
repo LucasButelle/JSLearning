@@ -1,0 +1,65 @@
+#input_area, #listbuttons{
+    display: flex;
+}
+
+#text_html, #text_css{
+    resize: none;
+    height: 200px;
+    width: 100%;
+}
+
+.boutton{
+    font-size: 1em;
+    border-radius: 10%;
+    margin-bottom: 5px;
+    height: 25px;
+}
+
+/*MENU DÉROULANT */
+.conteneur-nav{
+    display: flex;
+    transform:  translate(1024px, 0px);
+    font-size: 1.2rem;
+}
+
+.sous{
+    display: none;
+    background-color: white;
+    position: absolute;
+}
+nav > div > ul li:hover .sous{
+    display: flex;
+    flex-flow: column wrap;
+    border: 2px solid black;
+    width: 100%;
+}
+.deroulant > a::after{
+    content:" ▼";
+    font-size: 12px;
+}
+.deroulant{
+    list-style-type: none;
+}
+
+#count{
+    text-align: right;
+    margin: 0;
+}
+#loading{
+    width: 50px;
+    transform: translate(135px, -55px);
+    visibility: hidden;
+}
+/* PROGRESS BAR */
+.progress-container {
+    height: 1.2rem;
+    width: 100%;
+    border-radius: 0.4rem; 
+}
+#progress{
+    height: 50%;
+    width: 0;
+    border-radius: 0.4rem;
+    background: #18DC54;
+    transition: width 0.5s ease, background-color 0.5s ease
+}

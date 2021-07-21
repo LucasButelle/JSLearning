@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=stylesheet href="./css/style.css" type="text/css"/>
+        <script src="./js/08_livecoding.js" defer></script>
+        <title>LiveCoding</title>
+    </head>
+    <body>
+        <header>
+            <h1>Editor HTML & CSS</h1>
+        </header>
+
+        <nav id="listbuttons">
+            <button id="bold" onclick="addBold()" class="boutton">b</button>
+            <button id="italic" onclick="addItalic()" class="boutton">i</button>
+            <button id="italic" onclick="addUnderline()" class="boutton">u</button>
+            <div class="conteneur-nav">
+                    <ul>
+                        <li class="deroulant"><a href="#">Couleurs &ensp;</a>
+                            <ul class="sous">
+                                <li><a href="#" onclick="getGreen()">Vert</a></li>
+                                <li><a href="#" onclick="getRed()">Rouge</a></li>
+                                <li><a href="#" onclick="getBlue()">Bleu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        <section id="input_area">
+            <textarea id="text_html" placeholder="HTML" maxlength=""></textarea>
+            <textarea id="text_css" placeholder="CSS" maxlength=""></textarea>
+        </section>
+        
+        <section id="live_coding">
+            <div class="progress-container">
+                <div id="progress"></div>
+            </div>
+            <p id="count"></p>
+            <h1>Live_Coding</h1>
+            <img src="./img/loading.gif" alt="Loading" id="loading">
+                <p id="live"></p>
+        </section>
+    </body>
+</html>
