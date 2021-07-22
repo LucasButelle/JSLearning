@@ -74,6 +74,12 @@ inputhtml.onfocus = () => {
 inputhtml.onblur = () => {
     loading.style.visibility = "hidden";
 }
+inputcss.onfocus = () => {
+    loading.style.visibility = "visible";
+}
+inputcss.onblur = () => {
+    loading.style.visibility = "hidden";
+}
 
 function addBold() {
     inputhtml.value += "<b> </b>";

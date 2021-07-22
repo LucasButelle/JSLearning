@@ -3,15 +3,27 @@ let inputCardOwner = document.getElementById('titulaire');
 let inputCardExpiration = document.getElementById('expirationdate');
 let inputCardCrypto = document.getElementById('crypto');
 
-
+/** NUMÉRO DE LA CARTE
+ * 
+ * 
+ */
 inputCardNumber.onkeyup = inputCardNumber.onkeypress  = function(){
     let liveCardNumber = document.getElementById('numero');
     liveCardNumber.innerHTML = this.value;
     if(inputCardNumber.value === ""){
-        liveCardNumber.innerHTML = "•••• •••• •••• ••••";
+        liveCardNumber.innerHTML = "• • • • &nbsp; • • • • &nbsp; • • • • &nbsp; • • • •";
     }
 }
+inputCardNumber.addEventListener('keypress',function (e) {
+    if (this.value.length === 4 || this.value.length === 9 || this.value.length === 14) {
+        this.value = this.value += ' ';
+    }
+});
 
+/** TITULAIRE DE LA CARTE
+ * 
+ * 
+ */
 inputCardOwner.onkeyup = inputCardOwner.onkeypress  = function(){
     document.getElementById('name').innerHTML = this.value;
     if(inputCardOwner.value === ""){
@@ -19,17 +31,39 @@ inputCardOwner.onkeyup = inputCardOwner.onkeypress  = function(){
     }
 }
 
+/** EXPIRATION DE LA CARTE
+ * 
+ * 
+ */
 inputCardExpiration.onkeyup = inputCardExpiration.onkeypress  = function(){
     document.getElementById('expiration').innerHTML = this.value;
     if(inputCardExpiration.value === ""){
         document.getElementById('name').innerHTML = "MM / YY";
     }
 }
+inputCardExpiration.addEventListener('keypress',function () {
+    if (this.value.length === 2) {
+        this.value = this.value += '/';
+}
+});
 
+/** CRYPTOGRAMME DE LA CARTE
+ * 
+ * 
+ */
 inputCardCrypto.onkeyup = inputCardCrypto.onkeypress  = function(){
-    document.getElementById('crypto').innerHTML = this.value;
+    let liveCardCrypto = document.getElementById('cryptogramme');
+
+    liveCardCrypto.innerHTML = this.value;
+    if(inputCardCrypto.value === ""){
+        liveCardCrypto.innerHTML = "123";
+    }
 }
 
+/** ANIMATION 'FLIP' DE LA CARTE
+ * 
+ * 
+ */
 let flip = document.getElementById('flip');
 
 inputCardCrypto.onfocus = () => {
@@ -38,37 +72,3 @@ inputCardCrypto.onfocus = () => {
 inputCardCrypto.onblur = () => {
     flip.style.transform = "rotateY(0deg)";
 }
-
-
-
-
-
-function space(inputCardNumber, space) {
-    space = 4;
-    let v = inputCardNumber.value.replace(/[^\dA-Z]/g, ''),
-        reg = new RegExp(".{" + space + "}","g")
-        inputCardNumber.value = v.replace(reg, function (a, b, c) {
-        return a + ' ';
-    });
-}
-
-inputCardNumber.addEventListener('keyup', function () {
-    space(this, 4);
-});
-
-
-
-
-
-function slash(inputCardNumber, slash) {
-    slash = 2;
-    let v = inputCardExpiration.value.replace(/[^\dA-Z]/g, ''),
-        reg = new RegExp(".{" + slash + "}","g")
-        inputCardExpiration.value = v.replace(reg, function (a, b, c) {
-        return a + '/';
-    });
-}
-
-inputCardExpiration.addEventListener('keyup', function () {
-    slash(this, 2);
-});
