@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
-        <script src="./js/script.js" defer></script>
+        <script src="./js/07_creditCard.js" defer></script>
         <title>Credit Card</title>
     </head>
 
@@ -13,42 +13,47 @@
         <div class="container">
             <h2>Paiement par carte de crédit</h2>
                 <p>Frais de transaction <span>0.00€</span></p>
-            <section id="carte">
-                <div class="card-front">
-                    <div class="puce"></div>
-                    <div class="numero">•••• •••• •••• ••••</div>
-                    <div class="name">Full Name</div>
-                    <div class="expiration">MM/YY</div>
-                </div>
+ 
+            <section id="carte" class="flip-card">
+                <div id="flip" class="flip-card-inner">
+                    <div class="card-front flip-card-front">
+                        <div class="puce"></div>
+                        <div class="numero" id="numero">•••• •••• •••• ••••</div>
+                        <div class="name" id="name">First Name</div>
+                        <div class="expiration" id="expiration">MM/YY</div>
+                    </div>
 
-                <div class="card-back">
-                    <div class="puce-back"></div>
-                    <div class="black-bar"></div>
-                    <div class="white-bar"></div>
-                    <div class="crypto">123</div>
-                    <div class="text">
-                        This card has been issued by Jesse Pollak and is licensed for anyone to use anywhere for free.
-                        It comes with no warranty. For support issues, please visit: github.com/jessepollak/card.
+                    <div class="card-back flip-card-back">
+                        <div class="puce-back"></div>
+                        <div class="black-bar"></div>
+                        <div class="white-bar"></div>
+                        <div class="crypto">123</div>
+                        <div class="text">
+                            This card has been issued by Jesse Pollak and is licensed for anyone to use anywhere for free.
+                            It comes with no warranty. For support issues, please visit: github.com/jessepollak/card.
+                        </div>
                     </div>
                 </div>
-                <p>🔒 Paiement sécurisé par by HiPay SAS, 256-bit SSL</p>
-    
             </section>
     
             <section id="formulaire">
                 <div class="form-group">
                     <label for="numerocarte">Numéro de la carte</label>
-                    <input type="text"id="numerocarte" required>
+                    <input type="text" id="numerocarte" required>
                 </div>
                 <div class="form-group">
                     <label for="titulaire">Titulaire de la carte</label>
                     <input type="text" id="titulaire" required>
                 </div>
-                <div class="form-group">
-                    <label for="expirationdate" class="form2">Date d'expiration</label>
-                    <input type="text" id="expirationdate" required>
-                    <label for="crypto" class="form2">Cryptogramme</label>
-                    <input type="text" id="crypto" required>
+                <div class="form-group2">
+                    <div class="form-content">
+                        <label for="expirationdate">Date d'expiration</label>
+                        <input type="text" id="expirationdate" placeholder="MM / YY"required>
+                    </div>
+                    <div class="form-content">
+                        <label for="crypto">Cryptogramme</label>
+                        <input type="text" id="crypto"  placeholder="CVC" required>
+                    </div>
                 </div>
                 <button type="submit" id="submit">Payer</button>
     
